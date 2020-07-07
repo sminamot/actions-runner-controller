@@ -21,6 +21,6 @@ jobs:
     - name: Login DockerHub
       run: |
         echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u sminamot --password-stdin
-    - name: Push container image
+    - name: Build and Push container image
       run: make docker-push
       working-directory: runner

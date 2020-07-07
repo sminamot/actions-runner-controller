@@ -62,7 +62,7 @@ RUN curl -L -o docker.tgz https://download.docker.com/linux/static/stable/${DOCK
 
 RUN mkdir -p /runner \
   && cd /runner \
-  && wget -O- https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-${GITHUB_RUNNER_ARCH}-${GITHUB_RUNNER_VERSION}.tar.gz | tar xz \
+  && wget -O- https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-${RUNNER_ARCH}-${RUNNER_VERSION}.tar.gz | tar xz \
   && ./bin/installdependencies.sh \
   && rm -rf /var/lib/apt/lists/*
 
