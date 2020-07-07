@@ -60,7 +60,6 @@ docker-build: test
 
 # Push the docker image
 docker-push:
-	docker push ${NAME}:${VERSION}
 	docker buildx build \
 		--push \
 		--platform linux/arm/v7,linux/amd64 \
