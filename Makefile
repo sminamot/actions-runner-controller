@@ -1,4 +1,4 @@
-NAME ?= summerwind/actions-runner-controller
+NAME ?= sminamot/actions-runner-controller
 VERSION ?= latest
 
 # Produce CRDs that work back to Kubernetes 1.11 (no version conversion)
@@ -61,6 +61,11 @@ docker-build: test
 # Push the docker image
 docker-push:
 	docker push ${NAME}:${VERSION}
+	docker buildx build \
+		--push \
+		--platform linux/arm/v7,linux/amd64 \
+		-t ${NAME}:latest \
+		-t ${NAME}:${RUNNER_VERSION} .
 
 # Generate the release manifest file
 release: manifests
