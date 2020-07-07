@@ -63,8 +63,7 @@ docker-push:
 	docker buildx build \
 		--push \
 		--platform linux/arm/v7,linux/amd64 \
-		-t ${NAME}:latest \
-		-t ${NAME}:${RUNNER_VERSION} .
+		-t ${NAME}:latest .
 
 # Generate the release manifest file
 release: manifests
